@@ -19,12 +19,15 @@ public class CanoScript : MonoBehaviour
     void Update()
     {
         //move o cano pra esqueda
-        transform.Translate(Vector2.left*speed*Time.deltaTime);
-        if (transform.position.x < limitX)
+        if (MainScript.jogando)
         {
-            //volta para a posição inicial
-            PipePosition(uplimit, downlimit);
-        } 
+            transform.Translate(Vector2.left * speed * Time.deltaTime);
+            if (transform.position.x < limitX)
+            {
+
+                PipePosition(uplimit, downlimit);
+            }
+        }
     }
     void PipePosition(float u, float d)
     {

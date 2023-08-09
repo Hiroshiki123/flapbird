@@ -12,6 +12,8 @@ public class FlapScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0.0f;
+
     }
 
     // Update is called once per frame
@@ -20,6 +22,11 @@ public class FlapScript : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             impulcionar = true;
+            if (!MainScript.jogando)
+            {
+                rb.gravityScale = 1.0f;
+
+            }
         }
         transform.Rotate(Vector3.forward * (rb.velocity.y * 0.05f));
     }
@@ -29,6 +36,7 @@ public class FlapScript : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, impulso);
             impulcionar=false;
+            MainScript.jogando = true;
         }
     }
 }
