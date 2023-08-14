@@ -39,4 +39,8 @@ public class FlapScript : MonoBehaviour
             MainScript.jogando = true;
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        collision.gameObject.GetComponent<AudioSource>().Play() ;
+    }
 }
