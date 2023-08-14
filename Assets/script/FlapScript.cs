@@ -51,6 +51,7 @@ public class FlapScript : MonoBehaviour
     {
         audioSouce.clip = clips[1];
         audioSouce.Play();
+        
         Destroy(this);
     }
 }
